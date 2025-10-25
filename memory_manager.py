@@ -117,6 +117,10 @@ class MemoryManager:
         else:
             # Não há moldura livre, precisa substituir
             frame_number = self.replacement_algorithm.select_victim()
+            
+            if frame_number is None:
+                raise RuntimeError("Nenhuma moldura disponível para substituição")
+            
             evicted_page = self.physical_memory.get_frame(frame_number).page
             
             if evicted_page:

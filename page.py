@@ -23,7 +23,9 @@ class Page:
         self.data = data if data is not None else []
     
     def __repr__(self):
-        return f"Page(number={self.page_number}, data={self.data[:10]}...)" if len(self.data) > 10 else f"Page(number={self.page_number}, data={self.data})"
+        if len(self.data) > 10:
+            return f"Page(number={self.page_number}, data={self.data[:10]}...)"
+        return f"Page(number={self.page_number}, data={self.data})"
 
 
 class PageFrame:
