@@ -1,0 +1,13 @@
+# ==============================
+# CONFIGURAÇÃO DO SIMULADOR DE MEMÓRIA
+# ==============================
+
+# Tamanho da memória física (em número de molduras)
+3
+
+# Tamanho da memória virtual (em número de páginas)
+8
+
+# Sequência de acessos a endereços virtuais (valores inteiros)
+# Cada número representa o índice da página virtual acessada
+0 2 1 3 0 4 2 1 5 0 2 3 6
