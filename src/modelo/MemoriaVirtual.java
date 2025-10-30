@@ -13,4 +13,9 @@ public class MemoriaVirtual {
     public Pagina getPagina(int numero) {
         return paginas[numero];
     }
+
+    public int getTotalPaginas() {
+        return paginas.length;
+    }
 }
+

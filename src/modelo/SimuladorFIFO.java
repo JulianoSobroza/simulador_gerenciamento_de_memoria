@@ -42,11 +42,14 @@ public class SimuladorFIFO {
                     memoriaFisica.adicionarPagina(endereco);
 
                     pagina.carregarNaMoldura(moldura);
-                    System.out.println("→ Página " + paginaRemovida + " removida da memória (FIFO).");
+                    //System.out.println("→ Página " + paginaRemovida + " removida da memória (FIFO).");
+                    System.out.println("→ Página " + paginaRemovida + " removida da moldura " + moldura + " (FIFO).");
                 }
             }
-            mostrarEstado();
+            mostrarEstado(); // Exibe as molduras
+            mostrarTabelaDePaginas();
         }
+
 
         System.out.println("\nSimulação encerrada.");
         System.out.println("Total de falhas de página: " + falhasPagina);
@@ -60,5 +63,23 @@ public class SimuladorFIFO {
             idx++;
         }
         System.out.println("------------------------------\n");
+    }
+
+    //NOVO METODO test
+    private void mostrarTabelaDePaginas() {
+        System.out.println("\n--- Tabela de Páginas ---");
+        System.out.println("Página | Presença | Moldura");
+        System.out.println("-------------------------");
+
+        // Itera sobre todas as páginas virtuais
+        for (int i = 0; i < memoriaVirtual.getTotalPaginas(); i++) {
+            Pagina p = memoriaVirtual.getPagina(i);
+            String presente = p.isPresente() ? "SIM" : "NÃO";
+            String moldura = p.isPresente() ? String.valueOf(p.getMoldura()) : "-";
+
+            // Usa formatação para alinhar as colunas
+            System.out.printf("%6d | %8s | %7s\n", i, presente, moldura);
+        }
+        System.out.println("-------------------------\n");
     }
 }
