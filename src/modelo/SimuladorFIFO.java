@@ -33,10 +33,14 @@ public class SimuladorFIFO {
                 } else {
                     int paginaRemovida = memoriaFisica.substituirPagina();
                     Pagina antiga = memoriaVirtual.getPagina(paginaRemovida);
+
+                    int moldura = antiga.getMoldura();
                     antiga.removerDaMemoria();
 
-                    int moldura = memoriaFisica.getMoldurasOcupadas().size();
+                    //int moldura = memoriaFisica.getMoldurasOcupadas().size();   errado
+
                     memoriaFisica.adicionarPagina(endereco);
+
                     pagina.carregarNaMoldura(moldura);
                     System.out.println("→ Página " + paginaRemovida + " removida da memória (FIFO).");
                 }
